@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="vXZ-lx-hvc" customClass="ViewController" customModule="browser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8OG-R8-EQY" userLabel="Header">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="39.5"/>
+                                <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="640" height="40"/>
+                                </variation>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8q-BD-jKn">
+                                <rect key="frame" x="0.0" y="20.5" width="480" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="299" y="19" width="42" height="21"/>
+                                </variation>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiH-2T-80a">
+                                <rect key="frame" x="0.0" y="436" width="480" height="44"/>
+                                <items>
+                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="TMX-OJ-4gQ"/>
+                                    <barButtonItem title="&lt;" style="plain" id="OCC-7v-7cu"/>
+                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="JDX-pZ-JiI"/>
+                                    <barButtonItem title=">" id="MxB-eX-b3d"/>
+                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="AdB-lv-Yid"/>
+                                    <barButtonItem systemItem="refresh" id="aOv-3B-jSQ"/>
+                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="IPc-e1-xnV"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="gT2-eB-qmd"/>
+                                    <barButtonItem systemItem="search" id="nSY-rH-rSb"/>
+                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="mSa-xo-xiz"/>
+                                    <barButtonItem systemItem="action" id="aWh-Y9-Rye"/>
+                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="RxV-iS-nIF"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l8q-BD-jKn" firstAttribute="leading" secondItem="CiH-2T-80a" secondAttribute="leading" id="09k-sq-OO3"/>
+                            <constraint firstItem="CiH-2T-80a" firstAttribute="trailing" secondItem="l8q-BD-jKn" secondAttribute="trailing" id="HZc-vz-bPU"/>
+                            <constraint firstItem="l8q-BD-jKn" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" symbolic="YES" id="XEo-8U-48d"/>
+                            <constraint firstItem="l8q-BD-jKn" firstAttribute="leading" secondItem="8OG-R8-EQY" secondAttribute="leading" id="a4d-sY-XTK"/>
+                            <constraint firstItem="CiH-2T-80a" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gTQ-LV-dav"/>
+                            <constraint firstAttribute="bottom" secondItem="CiH-2T-80a" secondAttribute="bottom" id="hEg-b2-YWV"/>
+                            <constraint firstAttribute="trailing" secondItem="l8q-BD-jKn" secondAttribute="trailing" id="i4w-ee-s8N"/>
+                            <constraint firstItem="8OG-R8-EQY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="pid-aS-Wge"/>
+                            <constraint firstItem="l8q-BD-jKn" firstAttribute="bottom" secondItem="8OG-R8-EQY" secondAttribute="bottom" id="v3E-0E-Kts"/>
+                            <constraint firstItem="l8q-BD-jKn" firstAttribute="trailing" secondItem="8OG-R8-EQY" secondAttribute="trailing" id="ySs-N0-uF9"/>
+                        </constraints>
+                    </view>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="headerLabel" destination="l8q-BD-jKn" id="7fw-1f-GNA"/>
+                        <outlet property="headerView" destination="8OG-R8-EQY" id="XaA-YZ-EJ8"/>
+                        <outlet property="searchDisplayController" destination="Jd6-c8-B4y" id="iEL-cq-ean"/>
+                        <outlet property="toolBar" destination="CiH-2T-80a" id="TZe-qb-8zF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Jd6-c8-B4y">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="cLy-BQ-wJv"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="FvW-yG-1D3"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="whc-Rw-cvN"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="B2e-pq-TYb"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="156" y="149"/>
+        </scene>
+    </scenes>
+</document>
