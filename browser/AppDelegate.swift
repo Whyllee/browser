@@ -15,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-        // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        let browserController = BrowserController()
+        let navigationController = UINavigationController(rootViewController: browserController)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
+        self.window!.rootViewController = navigationController
+        self.window!.makeKeyAndVisible()
         return true
     }
 
