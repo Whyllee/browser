@@ -17,6 +17,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, WKNavigationDelega
     @IBOutlet var headerView: UIView
     @IBOutlet var headerLabel: UILabel
     
+    @IBOutlet var buttonRefresh: UIBarButtonItem
+    @IBOutlet var buttonBack: UIBarButtonItem
+    @IBOutlet var buttonSearch: UIBarButtonItem
+    @IBOutlet var buttonAction: UIBarButtonItem
+    @IBOutlet var buttonClose: UIBarButtonItem
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,10 +46,32 @@ class ViewController: UIViewController, UIScrollViewDelegate, WKNavigationDelega
 
         self.view.addSubview(self.webView)
     }
-
+    
+    @IBAction func buttonClicked(sender:UIBarButtonItem) {
+        switch(sender) {
+        case buttonBack:
+            self.webView!.goBack()
+        case buttonSearch:
+            self._loadUrl("https://www.bing.com/images")
+        case buttonRefresh:
+            self.webView!.reload()
+        case buttonAction:
+            self._shareExtension()
+        case buttonClose:
+            self.dismissViewControllerAnimated(true, completion: nil)
+        default:
+            self.webView!.loadHTMLString("Hello world!", baseURL: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func _shareExtension() {
+        let activityController = UIActivityViewController()
+        self.navigationController.pushViewController(activityController, animated: true)
     }
     
     func _loadUrl(url:String) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
@@ -16,14 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8OG-R8-EQY" userLabel="Header">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OG-R8-EQY" userLabel="Header">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="39.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ymg-AQ-9tt"/>
+                                </constraints>
                                 <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="640" height="40"/>
                                 </variation>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8q-BD-jKn">
-                                <rect key="frame" x="0.0" y="20.5" width="480" height="19.5"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8q-BD-jKn">
+                                <rect key="frame" x="0.0" y="20.5" width="480" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
@@ -34,16 +37,40 @@
                                 <rect key="frame" x="0.0" y="436" width="480" height="44"/>
                                 <items>
                                     <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="TMX-OJ-4gQ"/>
-                                    <barButtonItem title="&lt;" style="plain" id="OCC-7v-7cu"/>
-                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="JDX-pZ-JiI"/>
-                                    <barButtonItem title=">" id="MxB-eX-b3d"/>
-                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="AdB-lv-Yid"/>
-                                    <barButtonItem systemItem="refresh" id="aOv-3B-jSQ"/>
-                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="IPc-e1-xnV"/>
+                                    <barButtonItem style="plain" systemItem="reply" id="OCC-7v-7cu">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonClicked:" destination="vXZ-lx-hvc" id="BVp-EY-hXc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="NtY-oQ-Kjw"/>
+                                    <barButtonItem systemItem="refresh" id="aOv-3B-jSQ">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonClicked:" destination="vXZ-lx-hvc" id="ecZ-M3-23O"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="cJH-Do-9RN"/>
+                                    <barButtonItem systemItem="search" id="nSY-rH-rSb">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonClicked:" destination="vXZ-lx-hvc" id="NQR-2U-aBw"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="gT2-eB-qmd"/>
-                                    <barButtonItem systemItem="search" id="nSY-rH-rSb"/>
-                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="mSa-xo-xiz"/>
-                                    <barButtonItem systemItem="action" id="aWh-Y9-Rye"/>
+                                    <barButtonItem systemItem="action" id="aWh-Y9-Rye">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonClicked:" destination="vXZ-lx-hvc" id="N96-ku-bEl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="uNK-S0-CTr"/>
+                                    <barButtonItem systemItem="stop" id="MxB-eX-b3d">
+                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonClicked:" destination="vXZ-lx-hvc" id="xX6-Le-5dp"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="RxV-iS-nIF"/>
                                 </items>
                             </toolbar>
@@ -58,13 +85,17 @@
                             <constraint firstAttribute="bottom" secondItem="CiH-2T-80a" secondAttribute="bottom" id="hEg-b2-YWV"/>
                             <constraint firstAttribute="trailing" secondItem="l8q-BD-jKn" secondAttribute="trailing" id="i4w-ee-s8N"/>
                             <constraint firstItem="8OG-R8-EQY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="pid-aS-Wge"/>
-                            <constraint firstItem="l8q-BD-jKn" firstAttribute="bottom" secondItem="8OG-R8-EQY" secondAttribute="bottom" id="v3E-0E-Kts"/>
                             <constraint firstItem="l8q-BD-jKn" firstAttribute="trailing" secondItem="8OG-R8-EQY" secondAttribute="trailing" id="ySs-N0-uF9"/>
                         </constraints>
                     </view>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="buttonAction" destination="aWh-Y9-Rye" id="uCj-Se-8mh"/>
+                        <outlet property="buttonBack" destination="OCC-7v-7cu" id="wrp-Tt-SA8"/>
+                        <outlet property="buttonClose" destination="MxB-eX-b3d" id="zh8-fy-FD7"/>
+                        <outlet property="buttonRefresh" destination="aOv-3B-jSQ" id="5Kt-vw-YLv"/>
+                        <outlet property="buttonSearch" destination="nSY-rH-rSb" id="Evr-Ko-LBu"/>
                         <outlet property="headerLabel" destination="l8q-BD-jKn" id="7fw-1f-GNA"/>
                         <outlet property="headerView" destination="8OG-R8-EQY" id="XaA-YZ-EJ8"/>
                         <outlet property="searchDisplayController" destination="Jd6-c8-B4y" id="iEL-cq-ean"/>
@@ -81,7 +112,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="156" y="149"/>
+            <point key="canvasLocation" x="159" y="147"/>
         </scene>
     </scenes>
 </document>
