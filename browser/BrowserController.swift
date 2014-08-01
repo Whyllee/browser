@@ -71,8 +71,9 @@ class BrowserController: UIViewController, UIScrollViewDelegate, WKNavigationDel
     }
     
     func _shareExtension() {
-        let activityController = UIActivityViewController()
-        self.navigationController.pushViewController(activityController, animated: true)
+        let url = self.webView!.URL
+        let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        self.navigationController.presentViewController(activityController, animated: true, completion: nil)
     }
     
     func _loadUrl(url:String) {
