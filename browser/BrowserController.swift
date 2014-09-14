@@ -13,31 +13,35 @@ import QuartzCore
 class BrowserController: UIViewController, UIScrollViewDelegate, WKNavigationDelegate {
     
     var webView:WKWebView?;
-    @IBOutlet var toolBar:UIToolbar
-    @IBOutlet var headerView: UIView
-    @IBOutlet var headerLabel: UILabel
-    @IBOutlet var placeholderView: UIView
+    @IBOutlet var toolBar:UIToolbar?
+    @IBOutlet var headerView: UIView?
+    @IBOutlet var headerLabel: UILabel?
+    @IBOutlet var placeholderView: UIView?
     
-    @IBOutlet var buttonRefresh: UIBarButtonItem
-    @IBOutlet var buttonBack: UIBarButtonItem
-    @IBOutlet var buttonSearch: UIBarButtonItem
-    @IBOutlet var buttonAction: UIBarButtonItem
-    @IBOutlet var buttonClose: UIBarButtonItem
+    @IBOutlet var buttonRefresh: UIBarButtonItem?
+    @IBOutlet var buttonBack: UIBarButtonItem?
+    @IBOutlet var buttonSearch: UIBarButtonItem?
+    @IBOutlet var buttonAction: UIBarButtonItem?
+    @IBOutlet var buttonClose: UIBarButtonItem?
     
-    init() {
+    override init() {
         super.init(nibName: "BrowserView", bundle: nil)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self._addBottomBorder(self.headerView)
+        self._addBottomBorder(self.headerView!)
         self._initializeWebview()
         self._loadUrl("http://tumblr.com")
     }
     
     func _initializeWebview() {
-        let frame = self.placeholderView.bounds
+        let frame = self.placeholderView!.bounds
         self.webView = WKWebView(frame: frame)
         
         self.webView!.allowsBackForwardNavigationGestures = true
@@ -45,20 +49,20 @@ class BrowserController: UIViewController, UIScrollViewDelegate, WKNavigationDel
         self.webView!.navigationDelegate = self
         self.webView!.autoresizingMask = .FlexibleWidth | .FlexibleHeight
 
-        self.placeholderView.addSubview(self.webView)
+        self.placeholderView!.addSubview(self.webView!)
     }
     
     @IBAction func buttonClicked(sender:UIBarButtonItem) {
         switch(sender) {
-        case buttonBack:
+        case self.buttonBack!:
             self.webView!.goBack()
-        case buttonSearch:
+        case self.buttonSearch!:
             self._loadUrl("https://www.bing.com")
-        case buttonRefresh:
+        case self.buttonRefresh!:
             self.webView!.reload()
-        case buttonAction:
+        case self.buttonAction!:
             self._shareExtension()
-        case buttonClose:
+        case self.buttonClose!:
             self.dismissViewControllerAnimated(true, completion: nil)
         default:
             self.webView!.loadHTMLString("Hello world!", baseURL: nil)
@@ -73,18 +77,18 @@ class BrowserController: UIViewController, UIScrollViewDelegate, WKNavigationDel
     func _shareExtension() {
         let url = self.webView!.URL
         let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-        self.navigationController.presentViewController(activityController, animated: true, completion: nil)
+        self.navigationController?.presentViewController(activityController, animated: true, completion: nil)
     }
     
     func _loadUrl(url:String) {
-        self.headerLabel.text = "loading ..."
+        self.headerLabel!.text = "loading ..."
         let url = NSURL(string: url)
         let request = NSURLRequest(URL:url)
         self.webView!.loadRequest(request)
     }
 
     func webView(webView: WKWebView!, didFinishNavigation navigation: WKNavigation!) {
-        self.headerLabel.text = self.webView!.URL.host
+        self.headerLabel!.text = self.webView!.URL.host
     }
     
     func _addBottomBorder(view:UIView) {
