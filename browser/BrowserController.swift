@@ -37,7 +37,7 @@ class BrowserController: UIViewController, UIScrollViewDelegate, WKNavigationDel
         
         self._addBottomBorder(self.headerView!)
         self._initializeWebview()
-        self._loadUrl("http://tumblr.com")
+        self._loadUrl("https://www.500px.com/fresh")
     }
     
     func _initializeWebview() {
@@ -85,12 +85,12 @@ class BrowserController: UIViewController, UIScrollViewDelegate, WKNavigationDel
     func _loadUrl(url:String) {
         self.headerLabel!.text = "loading ..."
         let url = NSURL(string: url)
-        let request = NSURLRequest(URL:url)
+        let request = NSURLRequest(URL:url!)
         self.webView!.loadRequest(request)
     }
 
     func webView(webView: WKWebView!, didFinishNavigation navigation: WKNavigation!) {
-        self.headerLabel!.text = self.webView!.URL.host
+        self.headerLabel!.text = self.webView!.URL!.host
     }
     
     func _addBottomBorder(view:UIView) {
